@@ -12,24 +12,22 @@ struct TabbarView: View {
     
     var body: some View {
         TabView {
-            ZStack(alignment: .bottom) {
-                ScrollView {
-                    VStack(spacing: Constants.spacing) {
-                        ForEach(1..<101) { id in
-                            Text(id.description)
-                                .font(Constants.textFont)
-                                .foregroundColor(
-                                    Color(uiColor: .systemGray2))
-                            
-                        }
+            ScrollView {
+                VStack(spacing: Constants.spacing) {
+                    ForEach(1..<101) { id in
+                        Text(id.description)
+                            .font(Constants.textFont)
+                            .foregroundColor(
+                                Color(uiColor: .systemGray2))
+                        
                     }
-                    .frame(maxWidth: .infinity)
                 }
-                .safeAreaInset(edge: .bottom) {
-                    Rectangle()
-                        .fill(Constants.rectangleColor)
-                        .frame(height: rectangleHeight)
-                }
+                .frame(maxWidth: .infinity)
+            }
+            .safeAreaInset(edge: .bottom) {
+                Rectangle()
+                    .fill(Constants.rectangleColor)
+                    .frame(height: rectangleHeight)
             }
             .tabItem {
                 Label("First", systemImage: "star")
